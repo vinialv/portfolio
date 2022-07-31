@@ -29,6 +29,7 @@ a {
 
 #menu a:hover {
     color: var(--orange-color);
+    transition: 0.2s;
 }
 
 #menu a::after{
