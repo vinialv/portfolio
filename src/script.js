@@ -17,3 +17,10 @@ function toggleMenu(event) {
 
 btnMobile.addEventListener('click', toggleMenu);
 btnMobile.addEventListener('touchstart', toggleMenu);
+
+
+$(document).ready(function() {
+    $(document).on('click','ul li', function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+});

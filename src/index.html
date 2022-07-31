@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
+    <title>Portfolio</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/style.css">
-    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +25,7 @@
                 <li><a href="#">Projetos</a></li>
                 <li><a href="#">Habilidades</a></li>
                 <li><a href="#">Contato</a></li>
-                <li><a href="#"><img src="/src/images/dark-mode.svg" alt="dark-mode"></a></li>
+                <li><a href="#" id="dark-mode"><img src="/src/images/dark-mode.svg" alt="dark-mode" loading="lazy"></a></li>
             </ul>
         </nav>
     </header>
@@ -33,15 +35,17 @@
                 <h2>Olá, eu sou</h2>
                 <h1>Vinícius Alves</h1>
                 <h3>Sou um desenvolvedor Front-End</h3>
-                <button id="CV">Download CV</button>
-                <button id="github">GitHub</button>
+                <div class="buttons">
+                    <button id="btn-CV" class="btn btn-cv">Download CV</button>
+                    <button id="btn-github" class="btn btn-github"><i class="fa-brands fa-github"></i>GitHub</button>
+                </div>
             </div>
             <div id="imgHome">
-                <img src="/src/images/logoHome.svg" alt="Imagem principal">
+                <img src="/src/images/logoHome.svg" alt="Imagem principal" loading="lazy">
             </div>
         </section>
         <div class="wave">
-            <img src="images/topWave.svg" alt="wave">
+            <img src="images/topWave.svg" alt="wave" loading="lazy">
         </div>
         <section id="services">
 

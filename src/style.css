@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-:root{
+:root {
     --main-bg-color: #F2F2EB;
     --dark-bg-color: #2E2E2E;
     --orange-color: #F25922;
@@ -8,29 +8,55 @@
     --dark-font-color: #262626;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
-body{
+body {
     background-color: var(--main-bg-color);
     font-family: 'Poppins', 'sans-serif';
     color: var(--dark-font-color);
 }
 
-a{
+a {
+    position: relative;
     text-decoration: none;
     color: #000;
 }
 
-a:hover{
-    font-weight: 500;
+#menu a:hover {
+    color: var(--orange-color);
 }
 
-header{
+#menu a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--orange-color);
+    left: 0;
+    bottom: 0;
+    transform: scale(0,1);
+    transition: transform 0.3s ease;
+}
+
+#menu a:hover::after{
+    transform: scale(1,1);
+}
+
+#menu li.active{
+    color: var(--orange-color);
+    border-bottom: 1px solid var(--orange-color);
+}
+
+#menu li.active a{
+    color: var(--orange-color);
+}
+
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,12 +64,12 @@ header{
     padding: 1rem;
 }
 
-#logo{
+#logo {
     font-size: 1.5rem;
     font-weight: 500;
 }
 
-#menu{
+#menu {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,80 +77,156 @@ header{
     gap: 1.5rem;
 }
 
-#menu a{
+#menu a {
     display: block;
     padding: .5rem;
 }
 
-#menu li a img{
+#menu li a img {
     width: 35px;
     height: 30px;
 }
 
-#btn-mobile{
+#btn-mobile {
     display: none;
 }
 
-#home{
+#home {
     display: flex;
     height: 700px;
     justify-content: center;
     align-items: center;
 }
 
-#home #content{
-    width: 40vw;
-    padding-left: 150px;
+#home #content {
+    width: 50vw;
+    padding-left: 120px;
 }
 
-#home #content h1{
+#home #content h1 {
     font-size: 76px;
     font-weight: 700;
 }
 
-#home #content h2{
+#home #content h2 {
     font-size: 40px;
     font-weight: 500;
 }
 
-#home #content h3{
+#home #content h3 {
     font-size: 26px;
     font-weight: 500;
 }
 
-
-#home #imgHome{
+.buttons{
     display: flex;
-    width: 60vw;
+    align-items: center;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: 2px solid var(--brown-color);
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    outline: none;    
+}
+
+.btn-cv{
+    color: var(--main-bg-color);
+    width: 240px;
+    margin-right: 20px;
+}
+
+.btn-github{
+    color: var(--brown-color);
+    width: 180px;
+}
+
+.btn i{
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.btn-cv:hover{
+    color: var(--brown-color);
+}
+
+.btn-github:hover{
+    color: var(--main-bg-color);;
+}
+
+.btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--brown-color);
+    z-index: -1;
+    transition: 0.8s;
+}
+
+.btn-cv::before, .btn-github::before{
+    bottom: 0;
+    border-radius: 40% 40% 0 0;
+}
+
+.btn-cv::before{
+    height: 180%;
+}
+
+.btn-cv:hover::before{
+    height: 0%;
+}
+
+.btn-github:hover::before{
+    height: 180%;
+}
+
+#home #imgHome {
+    display: flex;
+    width: 50vw;
     justify-content: center;
     align-items: center;
 }
 
-#home #imgHome img{
+#home #imgHome img {
     width: 650px;
     height: 550px;
 }
 
-.wave{
+.wave {
     height: 113px;
     width: 100vw;
 }
 
-.wave img{
+.wave img {
     width: 100%;
     height: 100%;
     margin: 0;
 }
 
-#services{
+#services {
     background: #8C3623;
     width: 100vw;
     height: 500px;
 }
 
 @media (max-width: 768px) {
-    
-    #menu{
+
+    #menu {
         display: block;
         position: absolute;
         background: rgba(0, 0, 0, 0.1);
@@ -133,25 +235,24 @@ header{
         height: 0px;
         top: 100px;
         right: 0px;
-        z-index: 1000;
         transition: .6s;
         visibility: hidden;
         overflow-y: hidden;
         text-align: center;
     }
-    
-    #nav.active #menu{
+
+    #nav.active #menu {
         height: calc(100vh - 100px);
         visibility: visible;
     }
-    
-    #menu a{
+
+    #menu a {
         padding: 1rem 0;
         margin: 0 1rem;
-        border-bottom: 2px solid rgba(0,0,0,.05);
+        border-bottom: 2px solid rgba(0, 0, 0, .05);
     }
-    
-    #btn-mobile{
+
+    #btn-mobile {
         display: flex;
         padding: .5rem 1rem;
         border: none;
@@ -159,7 +260,7 @@ header{
         cursor: pointer;
     }
 
-    #hamburguer{
+    #hamburguer {
         display: block;
         width: 20px;
         border-top: 2px solid;
@@ -167,7 +268,7 @@ header{
     }
 
     #hamburguer::after,
-    #hamburguer::before{
+    #hamburguer::before {
         display: block;
         content: '';
         width: 20px;
@@ -175,18 +276,18 @@ header{
         background: currentColor;
         margin-top: 5px;
         transition: .3s;
-        position: relative;        
+        position: relative;
     }
 
-    #nav.active #hamburguer{
+    #nav.active #hamburguer {
         border-top-color: transparent;
     }
 
-    #nav.active #hamburguer::before{
+    #nav.active #hamburguer::before {
         transform: rotate(135deg);
     }
-    
-    #nav.active #hamburguer::after{
+
+    #nav.active #hamburguer::after {
         transform: rotate(-135deg);
         top: -7px;
     }
