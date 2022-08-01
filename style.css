@@ -237,11 +237,11 @@ header {
 }
 
 .wave:before{
-    background: url("/src/images/topWave.svg");    
+    background: url("/images/topWave.svg");    
 }
 
 .wave-bottom:before{
-    background: url("/src/images/bottomWave.svg");
+    background: url("/images/bottomWave.svg");
 }
 
 #services {
